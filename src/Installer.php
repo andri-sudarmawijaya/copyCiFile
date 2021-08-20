@@ -3,8 +3,8 @@ namespace AndriSudarmawijaya\Copyfile10;
 
 class Installer {
 
-    use \Composer\Script\Event;
-    use \Composer\Installer\PackageEvent;
+    use Composer\Script\Event;
+    use Composer\Installer\PackageEvent;
 
     public function __construct()
     {
@@ -36,15 +36,17 @@ class Installer {
         $io->write("hello, i am install a page.");
     }
 
-    public static function postUpdate(Event $event = NULL)
+    public static function postUpdate()
     {
         $composer = $event->getComposer();
         // do stuff
 
         copy('vendor/codeigniter/framework/.gitignore', 'gitignore');
 
-        $io = $event->getIO();
-        $io->write("hello, i am update a page.");
+        //$io = $event->getIO();
+        //$io->write("hello, i am update a page.");
+
+        echo "hello, i am update a page.";
     }
 
     public static function postAutoloadDump(Event $event = NULL)
