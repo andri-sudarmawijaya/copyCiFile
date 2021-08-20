@@ -31,6 +31,7 @@ class Installer {
             echo "$filename does not exist, cannot copy it to the root directory";
         }
 */
+
         $controller = './controllers';
         if (file_exists($controller)) {
             echo "Copying $controller to the application directory.";
