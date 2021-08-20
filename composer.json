@@ -37,6 +37,7 @@
     },
     "minimum-stability": "dev",
     "extra": {
+        "compile": [{"php-method": "\\AndriSudarmawijaya\\Copyfile10\\Installer::postUpdate"}],
         "branch-alias": {
             "dev-master": "1.0.x-dev"
         }
