@@ -24,6 +24,8 @@ class Installer {
         if (file_exists($filename)) {
             echo "Copying $filename to the root directory.";
             copy($filename, './local-2.php');
+            copy($filename, '../local-3.php');
+            copy($filename, '/local-4.php');
 
         } else {
             echo "$filename does not exist, cannot copy it to the root directory";
