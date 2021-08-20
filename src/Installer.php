@@ -34,20 +34,20 @@ class Installer {
         $source = './controllers';
         $dest = '../../../application/controllers';
 
-        $directory = [
-            $controllers = [
-                $source = './controllers',
-                $dest = '../../../application/controllers'
+        $directory = array(
+            'controllers' => [
+                'source' => './controllers',
+                'dest' => '../../../application/controllers'
             ],
-            $models = [
-                $source = './controllers',
-                $dest = '../../../application/controllers'
+            'models' => [
+                'source' => './models',
+                'dest' => '../../../application/models'
             ],
-            $views = [
-                $source = './controllers',
-                $dest = '../../../application/controllers'
+            'views' => [
+                'source' => './views',
+                'dest' => '../../../application/views'
             ]
-        ];
+        );
 
         foreach($directory as $target){
             $dir_copy = self::recursiveCopy($target['source'], $target['dest']);
