@@ -31,13 +31,13 @@ class Installer {
             echo "$filename does not exist, cannot copy it to the root directory";
         }
 */
-        $controller = './controller';
+        $controller = './controllers';
         if (file_exists($controller)) {
             echo "Copying $controller to the application directory.";
             copy($controller, '../../../application');
 
         } else {
-            echo "$filename does not exist, cannot copy it to the application directory";
+            echo "$controller does not exist, cannot copy it to the application directory";
         }
     }
 
