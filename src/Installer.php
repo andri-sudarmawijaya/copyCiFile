@@ -34,7 +34,7 @@ class Installer {
         $source = './controllers';
         $dest = '../../../application';
 //        $dir_copy = shell_exec( " cp -r -a source dest 2>&1 " );
-        $dir_copy = recursiveCopy($source, $dest);
+        $dir_copy = $this->recursiveCopy($source, $dest);
         if ($dir_copy) {
             echo "Copying $source to the application directory.";
 
