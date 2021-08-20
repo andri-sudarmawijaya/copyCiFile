@@ -21,6 +21,9 @@
         ],
         "post-update-cmd": [
             "AndriSudarmawijaya\\Copyfile10\\Installer::postUpdate"
+        ],
+        "post-autoload-dump": [
+            "AndriSudarmawijaya\\Copyfile10\\Installer::postAutoloadDump"
         ]
     },
     "minimum-stability": "dev"
