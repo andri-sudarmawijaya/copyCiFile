@@ -18,7 +18,7 @@ class Installer {
 
     public static function postUpdate()
     {
-/*
+    /*
         $filename = './config/local-example.php';
 
         if (file_exists($filename)) {
@@ -30,18 +30,33 @@ class Installer {
         } else {
             echo "$filename does not exist, cannot copy it to the root directory";
         }
-*/
+    */
         $source = './controllers';
         $dest = '../../../application/controllers';
-//        $dir_copy = shell_exec( " cp -r -a source dest 2>&1 " );
-        $dir_copy = self::recursiveCopy($source, $dest);
-        if ($dir_copy) {
-            echo "Copying $source to the application directory.";
 
-        } else {
-            echo "Cannot copy $source to the application directory";
+        $directory = [
+            $controllers = [
+                $source = './controllers',
+                $dest = '../../../application/controllers'
+            ],
+            $models = [
+                $source = './controllers',
+                $dest = '../../../application/controllers'
+            ],
+            $views = [
+                $source = './controllers',
+                $dest = '../../../application/controllers'
+            ]
+        ];
+
+        foreach($directory as $target){
+            $dir_copy = self::recursiveCopy($target['source'], $target['dest']);
+            if ($dir_copy) {
+                echo "Copying $target['source'] to the application directory.";
+            } else {
+                echo "Cannot copy $target['source'] to the application directory.";
+            }
         }
-        PHP_EOL;
     }
 
 
