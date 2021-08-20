@@ -3,12 +3,8 @@ namespace AndriSudarmawijaya\Copyfile10;
 
 class Installer {
 
-    use Composer\Script\Event;
-    use Composer\Installer\PackageEvent;
-
-    use Symfony\Component\Finder\Finder;
-    use Symfony\Component\Filesystem\Filesystem;
-    use Symfony\Component\Filesystem\Exception\IOException;
+    use \Composer\Script\Event;
+    use \Composer\Installer\PackageEvent;
 
     public function __construct()
     {
@@ -26,7 +22,17 @@ class Installer {
     {
         $composer = $event->getComposer();
         // do stuff
+        $filename = './app/code/Vendor/Module/file.php';
 
+        if (file_exists($filename)) {
+            echo "Copying $filename to the root directory.";
+            copy($filename, './file.php');
+
+        } else {
+            echo "$filename does not exist, cannot copy it to the root directory";
+        }
+
+        $io = $event->getIO();
         $io->write("hello, i am install a page.");
     }
 
