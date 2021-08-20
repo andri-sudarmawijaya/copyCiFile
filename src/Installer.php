@@ -61,7 +61,9 @@ class Installer {
 
         foreach ($iterator as $file) {
             if ($file->isDir()) {
-                mkdir($dst . '/' . $iterator->getSubPathName());
+                if (!file_exists($file)){
+                    mkdir($dst . '/' . $iterator->getSubPathName());
+                }
             } else {
                 copy($file, $dst . '/' . $iterator->getSubPathName());
             }
