@@ -35,6 +35,9 @@ class Installer {
         $composer = $event->getComposer();
         // do stuff
 
+        copy('vendor/codeigniter/framework/.gitignore', 'gitignore');
+
+        $io = $event->getIO();
         $io->write("hello, i am update a page.");
     }
 
