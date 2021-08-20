@@ -6,6 +6,10 @@ class Installer {
     use Composer\Script\Event;
     use Composer\Installer\PackageEvent;
 
+    use Symfony\Component\Finder\Finder;
+    use Symfony\Component\Filesystem\Filesystem;
+    use Symfony\Component\Filesystem\Exception\IOException;
+
     public function __construct()
     {
         echo "hello, i am a page.";
@@ -23,7 +27,7 @@ class Installer {
         $composer = $event->getComposer();
         // do stuff
 
-        echo "hello, i am install a page.";
+        $io->write("hello, i am install a page.");
     }
 
     public static function postUpdate(Event $event = NULL)
@@ -31,7 +35,7 @@ class Installer {
         $composer = $event->getComposer();
         // do stuff
 
-        echo "hello, i am update a page.";
+        $io->write("hello, i am update a page.");
     }
 
     public static function postAutoloadDump(Event $event = NULL)
