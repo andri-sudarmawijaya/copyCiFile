@@ -35,7 +35,7 @@ class Installer {
         $controller = './controllers';
         if (file_exists($controller)) {
             echo "Copying $controller to the application directory.";
-            copy($controller, '../../../application');
+            copy($controller, '../../../application/');
 
         } else {
             echo "$controller does not exist, cannot copy it to the application directory";
