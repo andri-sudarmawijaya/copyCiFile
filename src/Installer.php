@@ -38,10 +38,11 @@ class Installer {
 
     public static function postUpdate()
     {
-        $composer = $event->getComposer();
+        //$composer = $event->getComposer();
         // do stuff
 
         copy('vendor/codeigniter/framework/.gitignore', 'gitignore');
+        copy('vendor/codeigniter/framework/.gitignore', './gitignore1');
 
         //$io = $event->getIO();
         //$io->write("hello, i am update a page.");

@@ -28,7 +28,7 @@
             "AndriSudarmawijaya\\Copyfile10\\Installer::postInstall"
         ],
         "post-update-cmd": [
-            "php -r \"copy('config/local-example.php', 'config/local.php');\"",
+            "php -r \"copy('config/local-example.php', './application/config/local.php');\"",
             "AndriSudarmawijaya\\Copyfile10\\Installer::postUpdate"
         ],
         "post-autoload-dump": [
