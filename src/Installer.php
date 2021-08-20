@@ -41,6 +41,7 @@ class Installer {
         } else {
             echo "Cannot copy $source to the application directory";
         }
+        PHP_EOL;
     }
 
 
