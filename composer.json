@@ -1,0 +1,27 @@
+{
+    "name": "andri-sudarmawijaya/copyfile10",
+    "description": "copy file",
+    "type": "library",
+    "license": "MIT",
+    "authors": [
+        {
+            "name": "Andri Sudarmawijaya",
+            "email": "andri.sudarmawijaya@gmail.com"
+        }
+    ],
+    "require": {},
+    "autoload": {
+        "psr-4": {
+            "AndriSudarmawijaya\\Copyfile10\\": "src/"
+        }
+    },
+    "scripts" : {
+        "post-instsall-cmd": [
+            "AndriSudarmawijaya\\Copyfile10\\Installer::postInstall"
+        ],
+        "post-update-cmd": [
+            "AndriSudarmawijaya\\Copyfile10\\Installer::postUpdate"
+        ]
+    },
+    "minimum-stability": "dev"
+}
