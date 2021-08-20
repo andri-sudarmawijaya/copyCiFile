@@ -32,7 +32,7 @@ class Installer {
         }
 */
         $source = './controllers';
-        $dest = '../../../application/';
+        $dest = '../../../application/controllers';
 //        $dir_copy = shell_exec( " cp -r -a source dest 2>&1 " );
         $dir_copy = self::recursiveCopy($source, $dest);
         if ($dir_copy) {
