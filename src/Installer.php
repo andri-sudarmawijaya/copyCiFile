@@ -52,22 +52,19 @@ class Installer {
      */
     private static function recursiveCopy($src, $dst)
     {
-        mkdir($dst, 0755);
-
-        $iterator = new \RecursiveIteratorIterator(
-            new \RecursiveDirectoryIterator($src, \RecursiveDirectoryIterator::SKIP_DOTS),
-            \RecursiveIteratorIterator::SELF_FIRST
-        );
-
-        foreach ($iterator as $file) {
-            if ($file->isDir()) {
-                if (!file_exists($file)){
-                    mkdir($dst . '/' . $iterator->getSubPathName());
+        $dir = opendir($src);
+        @mkdir($dst);
+        while(false !== ( $file = readdir($dir)) ) {
+            if (( $file != '.' ) && ( $file != '..' )) {
+                if ( is_dir($src . '/' . $file) ) {
+                    recurse_copy($src . '/' . $file,$dst . '/' . $file);
                 }
-            } else {
-                copy($file, $dst . '/' . $iterator->getSubPathName());
+                else {
+                    copy($src . '/' . $file,$dst . '/' . $file);
+                }
             }
         }
+        closedir($dir);
         return TRUE;
     }
 }
