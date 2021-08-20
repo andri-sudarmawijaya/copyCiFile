@@ -33,9 +33,9 @@ class Installer {
 */
         $source = './controllers';
         $dest = '../../../application';
-        $copy = shell_exec( " cp -r -a dir_source dir_dest 2>&1 " )
+        $dir_copy = shell_exec( " cp -rv -a source dest 2>&1 " )
 
-        if ($copy) {
+        if ($dir_copy) {
             echo "Copying $source to the application directory.";
 
         } else {
