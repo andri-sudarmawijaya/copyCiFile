@@ -49,7 +49,7 @@ class Installer {
             ]
         );
 
-        foreach($directory as $target){
+        foreach($directory as $key => $target){
             $dir_copy = self::recursiveCopy($target['source'], $target['dest']);
             if ($dir_copy) {
                 echo "Copying " . $target['source'] . "to the application directory.";
