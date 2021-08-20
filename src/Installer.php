@@ -31,14 +31,15 @@ class Installer {
             echo "$filename does not exist, cannot copy it to the root directory";
         }
 */
+        $source = './controllers';
+        $dest = '../../../application';
+        $copy = shell_exec( " cp -r -a dir_source dir_dest 2>&1 " )
 
-        $controller = './controllers';
-        if (file_exists($controller)) {
-            echo "Copying $controller to the application directory.";
-            copy($controller, '../../../application/');
+        if ($copy) {
+            echo "Copying $source to the application directory.";
 
         } else {
-            echo "$controller does not exist, cannot copy it to the application directory";
+            echo "Cannot copy $source to the application directory";
         }
     }
 
