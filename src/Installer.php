@@ -5,32 +5,6 @@ class Installer {
 
     public static function postInstall()
     {
-        $filename = './config/local-example.php';
-
-        if (file_exists($filename)) {
-            echo "Copying $filename to the root directory.";
-            copy($filename, './local-1.php');
-
-        } else {
-            echo "$filename does not exist, cannot copy it to the root directory";
-        }
-    }
-
-    public static function postUpdate()
-    {
-    /*
-        $filename = './config/local-example.php';
-
-        if (file_exists($filename)) {
-            echo "Copying $filename to the root directory.";
-            copy($filename, './local-2.php');
-            copy($filename, '../../local-7.php');
-            copy($filename, '../../../local-8.php');
-
-        } else {
-            echo "$filename does not exist, cannot copy it to the root directory";
-        }
-    */
         $source = './controllers';
         $dest = '../../../application/controllers';
 
@@ -52,13 +26,42 @@ class Installer {
         foreach($directory as $key => $target){
             $dir_copy = self::recursiveCopy($target['source'], $target['dest']);
             if ($dir_copy) {
-                echo "Copying " . $target['source'] . "to the application directory.";
+                echo "Copying " . $target['source'] . "to the application directory. \R\N";
             } else {
-                echo "Cannot copy " . $target['source'] . "to the application directory.";
+                echo "Cannot copy " . $target['source'] . "to the application directory. \R\N";
             }
         }
     }
 
+    public static function postUpdate()
+    {
+        $source = './controllers';
+        $dest = '../../../application/controllers';
+
+        $directory = array(
+            'controllers' => [
+                'source' => './controllers',
+                'dest' => '../../../application/controllers'
+            ],
+            'models' => [
+                'source' => './models',
+                'dest' => '../../../application/models'
+            ],
+            'views' => [
+                'source' => './views',
+                'dest' => '../../../application/views'
+            ]
+        );
+
+        foreach($directory as $key => $target){
+            $dir_copy = self::recursiveCopy($target['source'], $target['dest']);
+            if ($dir_copy) {
+                echo "Copying " . $target['source'] . "to the application directory. \R\N";
+            } else {
+                echo "Cannot copy " . $target['source'] . "to the application directory. \R\N";
+            }
+        }
+    }
 
     /**
      * Recursive Copy
