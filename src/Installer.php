@@ -37,9 +37,9 @@ class Installer {
         foreach($directory as $key => $target){
             $dir_copy = self::recursiveCopy($target['source'], $target['dest']);
             if ($dir_copy) {
-                echo "Copying " . $target['source'] . "to the application directory. \R\N";
+                echo "Copying " . $target['source'] . "to the application directory.";
             } else {
-                echo "Cannot copy " . $target['source'] . "to the application directory. \R\N";
+                echo "Cannot copy " . $target['source'] . "to the application directory.";
             }
         }
 
