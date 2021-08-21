@@ -5,35 +5,16 @@ class Installer {
 
     public static function postInstall()
     {
-        $source = './controllers';
-        $dest = '../../../application/controllers';
-
-        $directory = array(
-            'controllers' => [
-                'source' => './controllers',
-                'dest' => '../../../application/controllers'
-            ],
-            'models' => [
-                'source' => './models',
-                'dest' => '../../../application/models'
-            ],
-            'views' => [
-                'source' => './views',
-                'dest' => '../../../application/views'
-            ]
-        );
-
-        foreach($directory as $key => $target){
-            $dir_copy = self::recursiveCopy($target['source'], $target['dest']);
-            if ($dir_copy) {
-                echo "Copying " . $target['source'] . "to the application directory. \R\N";
-            } else {
-                echo "Cannot copy " . $target['source'] . "to the application directory. \R\N";
-            }
-        }
+        self::packageInstall();
     }
 
     public static function postUpdate()
+    {
+        self::packageInstall();
+    }
+
+
+    private static function packageInstall()
     {
         $source = './controllers';
         $dest = '../../../application/controllers';
@@ -61,6 +42,7 @@ class Installer {
                 echo "Cannot copy " . $target['source'] . "to the application directory. \R\N";
             }
         }
+
     }
 
     /**
