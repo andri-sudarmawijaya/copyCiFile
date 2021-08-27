@@ -1,5 +1,5 @@
 {
-    "name": "andri-sudarmawijaya/copyfile10",
+    "name": "andri-sudarmawijaya/copycifile",
     "description": "copy file",
     "type": "library",
     "license": "MIT",
@@ -15,31 +15,21 @@
         "symfony/filesystem": "~2.7",
         "symfony/finder": "~2.7",
         "phpunit/phpunit": "5.7.27",
-        "mikey179/vfsstream": "~1",
+        "mikey179/vfsstream": "^1.6",
         "php-mock/php-mock-phpunit": "~1"
     },
     "autoload": {
         "psr-4": {
-            "AndriSudarmawijaya\\Copyfile10\\": "src/"
+            "AndriSudarmawijaya\\CopyCifile\\": "src/"
         }
     },
     "scripts" : {
         "post-install-cmd": [
-            "AndriSudarmawijaya\\Copyfile10\\Installer::postInstall"
+            "AndriSudarmawijaya\\CopyCifile\\Installer::postInstall"
         ],
         "post-update-cmd": [
-            "php -r \"copy('config/local-example.php', './application/config/local.php');\"",
-            "AndriSudarmawijaya\\Copyfile10\\Installer::postUpdate"
-        ],
-        "post-autoload-dump": [
-            "AndriSudarmawijaya\\Copyfile10\\Installer::postAutoloadDump"
+            "AndriSudarmawijaya\\CopyCifile\\Installer::postUpdate"
         ]
     },
-    "minimum-stability": "dev",
-    "extra": {
-        "compile": [{"php-method": "\\AndriSudarmawijaya\\Copyfile10\\Installer::postUpdate"}],
-        "branch-alias": {
-            "dev-master": "1.0.x-dev"
-        }
-    }
+    "minimum-stability": "dev"
 }
