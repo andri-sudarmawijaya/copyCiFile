@@ -22,13 +22,10 @@
             "AndriSudarmawijaya\\CopyCifile\\": "src/"
         }
     },
-    "scripts" : {
-        "post-install-cmd": [
-            "AndriSudarmawijaya\\CopyCifile\\Installer::postInstall"
-        ],
-        "post-update-cmd": [
-            "AndriSudarmawijaya\\CopyCifile\\Installer::postUpdate"
-        ]
-    },
-    "minimum-stability": "dev"
+    "minimum-stability": "dev",
+    "extra": {
+        "branch-alias": {
+            "dev-master": "1.0.x-dev"
+        }
+    }
 }
